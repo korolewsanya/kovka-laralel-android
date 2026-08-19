@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Дата"
+        android:textColor="@color/black"
+        android:layout_weight="0.15"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/prof"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Должность"
+        android:textColor="@color/black"
+        android:layout_weight="0.15"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Ф.И.О."
+        android:textColor="@color/black"
+        android:layout_weight="0.15"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tz"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Тех.задание"
+        android:textColor="@color/black"
+        android:layout_weight="0.15"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+
+    <TextView
+        android:id="@+id/otchet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Отчёт"
+        android:textColor="@color/black"
+        android:layout_weight="0.15"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black" />
+</LinearLayout>

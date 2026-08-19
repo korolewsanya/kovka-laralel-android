@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".AdminActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnZakaz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Заказы"
+        android:background="@drawable/zakaz"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="zakaz"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMater"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Материалы"
+        android:background="@drawable/mater"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="mater"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnZp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Зарплата"
+        android:background="@drawable/zp"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="zp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Финансы"
+        android:background="@drawable/fin"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="fin"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWokers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Сотрудники"
+        android:background="@drawable/wokers"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="wokers"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnOtchet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отчеты"
+        android:background="@drawable/dostup"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="otchet"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnTz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Тех.задания"
+        android:background="@drawable/rashod"
+        android:layout_margin="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="tz"/>
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Сохранить изменения"
+        android:id="@+id/change_z"/>
+    <item android:title="Удалить"
+        android:id="@+id/del_z"/>
+</menu>

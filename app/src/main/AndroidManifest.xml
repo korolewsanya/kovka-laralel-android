@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.kovka">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_foreground"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Kovka"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ProductSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductChDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinanceAddEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImgSelectFromServerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImageFullScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TzGiveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkReportsSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeChDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SalaryChDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SalarySaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaterSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaterChDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderSaveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderChDelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WorkReportsActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".EmployeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SalaryActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".MaterActivity"
+            android:exported="false"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".OrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TzActivity"
+            android:exported="false" />
+        <activity android:name=".ImgUploadToServerActivity" />
+    </application>
+
+</manifest>

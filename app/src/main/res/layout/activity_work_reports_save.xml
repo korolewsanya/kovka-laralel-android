@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WorkReportsSaveActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отчёт"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:padding="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="№"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/nom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.75"
+            android:enabled="false"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Дата"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.75"
+            android:enabled="false"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <!-- После поля "Дата" добавьте -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Сотрудник"
+            android:paddingLeft="1dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+
+        <Spinner
+            android:id="@+id/spinner_employee"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:background="@android:drawable/editbox_background"
+            android:padding="8dp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Тех. задание"
+            android:paddingLeft="1dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/teh_zd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:enabled="true"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Отчёт"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/order"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.75">
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Файл"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.20"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+        <EditText
+            android:id="@+id/img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="9dp"
+            android:textColor="@color/black"
+            android:layout_weight="0.75"
+            android:hint="Выберите фото"
+            android:focusable="false"
+            android:clickable="true">
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/select_photo_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/zakaz"
+        android:layout_margin="14dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Выбрать фото" />
+
+    <ImageView
+        android:id="@+id/selected_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+</LinearLayout>

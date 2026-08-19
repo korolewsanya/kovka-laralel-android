@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Загрузка изображений"
+        android:id="@+id/img"/>
+
+    <item android:title="Просмотр изображений"
+        android:id="@+id/img3"/>
+
+    <item
+        android:id="@+id/products"
+        android:title="Товары" />
+
+    <item
+        android:id="@+id/logout"
+        android:title="Выход"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>
