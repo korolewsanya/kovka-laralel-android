@@ -108,14 +108,14 @@ public class OrderChDelActivity extends AppCompatActivity {
         if (image1 != null && !image1.isEmpty() && !image1.equals("null")) {
             try {
                 String encodedImage = URLEncoder.encode(image1, "UTF-8");
-                String imageUrl = "http://192.168.1.156/storage/" + encodedImage;
+                String imageUrl = Config.STORAGE_BASE + encodedImage;
 
                 Glide.with(this)
                         .load(imageUrl)
                         .placeholder(android.R.drawable.ic_menu_gallery)
                         .error(android.R.drawable.ic_menu_report_image)
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .centerCrop()
+                        .fitCenter()
                         .into(imageView);
 
             } catch (Exception e) {
