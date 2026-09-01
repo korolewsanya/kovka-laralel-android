@@ -145,7 +145,7 @@ public class WorkReportsActivity extends AppCompatActivity {
     }
 
     private void showImageDialog(String imageFileName) {
-        String baseUrl = Config.STORAGE_BASE + "products/";
+        String baseUrl = Config.STORAGE_BASE;
         String fullUrl = baseUrl + imageFileName;
 
         Intent intent = new Intent(WorkReportsActivity.this, ImageFullScreenActivity.class);
