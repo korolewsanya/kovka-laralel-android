@@ -2,7 +2,7 @@ package com.example.kovka;
 
 public class Config {
     // Базовый URL (меняешь здесь один раз)
-    public static final String BASE_URL = "http://192.168.1.156/";
+    public static final String BASE_URL = "http://192.168.1.156/kovka-laravel/public/";
 
     // Составные пути
     public static final String API_BASE = BASE_URL + "api/";
