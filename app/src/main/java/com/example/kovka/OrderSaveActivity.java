@@ -1,6 +1,7 @@
 package com.example.kovka;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,6 +28,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import static android.app.Activity.RESULT_OK;
+
 public class OrderSaveActivity extends AppCompatActivity {
     private static final String TAG = "ZakazSave";
 
@@ -43,7 +46,7 @@ public class OrderSaveActivity extends AppCompatActivity {
 
     private List<ProductItem> productList = new ArrayList<>();
     private boolean isCreating = false;
-    private ProgressDialog progressDialog; // ДОБАВЛЯЕМ ProgressDialog
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +75,10 @@ public class OrderSaveActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         coment = findViewById(R.id.coment);
 
-        // ИНИЦИАЛИЗИРУЕМ ProgressDialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Создание заказа...");
-        progressDialog.setCancelable(false); // Нельзя отменить нажатием назад
-        progressDialog.setCanceledOnTouchOutside(false); // Нельзя отменить нажатием вне диалога
+        progressDialog.setCancelable(false);
+        progressDialog.setCanceledOnTouchOutside(false);
 
         setupWebView();
 
@@ -240,16 +242,36 @@ public class OrderSaveActivity extends AppCompatActivity {
             email1 = email.getText().toString();
             coment1 = coment.getText().toString();
 
-            if (TextUtils.isEmpty(data1)) {
-                data.setError("Пожалуйста, заполните это поле");
-                return true;
-            }
             if (selectedProductId.equals("0")) {
                 Toast.makeText(this, "Пожалуйста, выберите товар", Toast.LENGTH_SHORT).show();
                 return true;
             }
+            if (TextUtils.isEmpty(dlina1)) {
+                dlina.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
+            if (TextUtils.isEmpty(shirina1)) {
+                shirina.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
+            if (TextUtils.isEmpty(visota1)) {
+                visota.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
             if (TextUtils.isEmpty(prise1)) {
                 prise.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
+            if (TextUtils.isEmpty(pay1)) {
+                pay.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
+            if (TextUtils.isEmpty(proces1)) {
+                proces.setError("Пожалуйста, заполните это поле");
+                return true;
+            }
+            if (TextUtils.isEmpty(name1)) {
+                name.setError("Пожалуйста, заполните это поле");
                 return true;
             }
             if (TextUtils.isEmpty(tel1)) {
@@ -270,7 +292,6 @@ public class OrderSaveActivity extends AppCompatActivity {
     private void createOrder() {
         isCreating = true;
 
-        // ПОКАЗЫВАЕМ ПРОГРЕСС-ДИАЛОГ
         runOnUiThread(() -> {
             if (progressDialog != null && !progressDialog.isShowing()) {
                 progressDialog.show();
@@ -301,7 +322,6 @@ public class OrderSaveActivity extends AppCompatActivity {
                 public void onSuccess(JSONObject result) {
                     isCreating = false;
                     runOnUiThread(() -> {
-                        // СКРЫВАЕМ ПРОГРЕСС-ДИАЛОГ
                         hideProgressDialog();
                         Toast.makeText(OrderSaveActivity.this, "Заказ создан! Проверьте список.", Toast.LENGTH_LONG).show();
                         navigateBack();
@@ -312,7 +332,6 @@ public class OrderSaveActivity extends AppCompatActivity {
                 public void onError(String error) {
                     isCreating = false;
                     runOnUiThread(() -> {
-                        // СКРЫВАЕМ ПРОГРЕСС-ДИАЛОГ
                         hideProgressDialog();
                         Toast.makeText(OrderSaveActivity.this, "Заказ отправлен. Проверьте список.", Toast.LENGTH_LONG).show();
                         navigateBack();
@@ -337,14 +356,12 @@ public class OrderSaveActivity extends AppCompatActivity {
         }
     }
 
-    // МЕТОД ДЛЯ СКРЫТИЯ ПРОГРЕСС-ДИАЛОГА
     private void hideProgressDialog() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }
 
-    // ОБЯЗАТЕЛЬНО СКРЫВАЕМ ДИАЛОГ ПРИ УНИЧТОЖЕНИИ АКТИВНОСТИ
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -352,6 +369,9 @@ public class OrderSaveActivity extends AppCompatActivity {
     }
 
     private void navigateBack() {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("created", true);
+        setResult(RESULT_OK, resultIntent);
         finish();
     }
 

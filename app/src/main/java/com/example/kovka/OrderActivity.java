@@ -28,6 +28,9 @@ import java.util.Map;
 
 public class OrderActivity extends AppCompatActivity {
     private static final String JSON_URL = Config.API_BASE + "orders";
+    private static final int REQUEST_CODE_UPDATE = 1;
+    private static final int REQUEST_CODE_CREATE = 2;
+
     private ListView listView;
     private ArrayList<JSONObject> infoList;
     private String manager;
@@ -97,7 +100,8 @@ public class OrderActivity extends AppCompatActivity {
                     if (manager != null) {
                         intent.putExtra("manager", manager);
                     }
-                    startActivity(intent);
+
+                    startActivityForResult(intent, REQUEST_CODE_UPDATE);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -107,12 +111,21 @@ public class OrderActivity extends AppCompatActivity {
         });
     }
 
-    // ДОБАВЛЕНО: onResume для обновления списка
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // ✅ ПРАВИЛЬНО!
+        if (resultCode == RESULT_OK) {
+            if (requestCode == REQUEST_CODE_UPDATE || requestCode == REQUEST_CODE_CREATE) {
+                loadJSONFromURL(JSON_URL);
+            }
+        }
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        // Обновляем список каждый раз при возврате
-        loadJSONFromURL(JSON_URL);
     }
 
     private void loadJSONFromURL(String url) {
@@ -198,7 +211,6 @@ public class OrderActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.new_order, menu);
 
-        // Показываем кнопку "Добавить" только админу
         MenuItem saveItem = menu.findItem(R.id.save);
         if (saveItem != null) {
             saveItem.setVisible(isAdmin());
@@ -219,7 +231,7 @@ public class OrderActivity extends AppCompatActivity {
             if (arguments != null) {
                 intent.putExtra("manager", manager);
             }
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE_CREATE);
             return true;
         }
         return super.onOptionsItemSelected(item);
