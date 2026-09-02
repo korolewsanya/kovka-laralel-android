@@ -22,7 +22,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,6 +30,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
+import static android.app.Activity.RESULT_OK;
+
 public class OrderChDelActivity extends AppCompatActivity {
 
     private EditText id, data, izdelie, dlina, shirina, visota, prise, pay, proces, name, tel, email, coment;
@@ -38,7 +39,6 @@ public class OrderChDelActivity extends AppCompatActivity {
 
     private String idi1, data1, izdelie1, image1, dlina1, shirina1, visota1, prise1, pay1, proces1, name1, tel1, email1, coment1;
     private String manager;
-
     private String userRole;
 
     @Override
@@ -107,8 +107,7 @@ public class OrderChDelActivity extends AppCompatActivity {
     private void loadImage() {
         if (image1 != null && !image1.isEmpty() && !image1.equals("null")) {
             try {
-                String encodedImage = URLEncoder.encode(image1, "UTF-8");
-                String imageUrl = Config.STORAGE_BASE + encodedImage;
+                String imageUrl = Config.getImageUrl(image1);
 
                 Glide.with(this)
                         .load(imageUrl)
@@ -194,7 +193,6 @@ public class OrderChDelActivity extends AppCompatActivity {
                     tel.setError("Пожалуйста, заполните это поле");
                 } else {
                     updateOrder();
-                    finish();
                 }
                 return true;
 
@@ -205,21 +203,17 @@ public class OrderChDelActivity extends AppCompatActivity {
                     return true;
                 }
                 deleteOrder();
-                Toast toast = Toast.makeText(OrderChDelActivity.this, "Заказ удален", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
-                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void updateOrder() {
-        String url = "http://192.168.1.156/api/orders/" + idi1;
-
+         String url = Config.API_BASE + "orders/" + idi1;
         RequestQueue queue = Volley.newRequestQueue(OrderChDelActivity.this);
 
         Map<String, String> params = new HashMap<>();
+        params.put("product_id", "1");
         params.put("customer_name", name1);
         params.put("customer_phone", tel1);
         params.put("customer_email", email1);
@@ -239,6 +233,11 @@ public class OrderChDelActivity extends AppCompatActivity {
                     try {
                         if (!response.getBoolean("error")) {
                             Toast.makeText(OrderChDelActivity.this, "Изменения сохранены", Toast.LENGTH_LONG).show();
+
+                            // ВОЗВРАЩАЕМ РЕЗУЛЬТАТ
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra("updated", true);
+                            setResult(RESULT_OK, resultIntent);
                             finish();
                         } else {
                             Toast.makeText(OrderChDelActivity.this,
@@ -246,11 +245,24 @@ public class OrderChDelActivity extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(OrderChDelActivity.this,
+                                "Ошибка обработки ответа", Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
-                    Toast.makeText(OrderChDelActivity.this,
-                            "Ошибка соединения. Попробуйте позже.", Toast.LENGTH_SHORT).show();
+                    String errorMsg = "Ошибка соединения. Попробуйте позже.";
+                    if (error.networkResponse != null) {
+                        try {
+                            String responseBody = new String(error.networkResponse.data, "UTF-8");
+                            JSONObject errorJson = new JSONObject(responseBody);
+                            if (errorJson.has("message")) {
+                                errorMsg = errorJson.getString("message");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    Toast.makeText(OrderChDelActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                 }
         ) {
             @Override
@@ -269,8 +281,7 @@ public class OrderChDelActivity extends AppCompatActivity {
     }
 
     private void deleteOrder() {
-        String url = "http://192.168.1.156/api/orders/" + idi1;
-
+         String url = Config.API_BASE + "orders/" + idi1;
         RequestQueue queue = Volley.newRequestQueue(OrderChDelActivity.this);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE, url, null,
@@ -278,6 +289,10 @@ public class OrderChDelActivity extends AppCompatActivity {
                     try {
                         if (!response.getBoolean("error")) {
                             Toast.makeText(OrderChDelActivity.this, "Заказ удалён", Toast.LENGTH_LONG).show();
+
+                            Intent resultIntent = new Intent();
+                            resultIntent.putExtra("updated", true);
+                            setResult(RESULT_OK, resultIntent);
                             finish();
                         } else {
                             Toast.makeText(OrderChDelActivity.this,
@@ -285,11 +300,24 @@ public class OrderChDelActivity extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(OrderChDelActivity.this,
+                                "Ошибка обработки ответа", Toast.LENGTH_SHORT).show();
                     }
                 },
                 error -> {
-                    Toast.makeText(OrderChDelActivity.this,
-                            "Ошибка соединения. Попробуйте позже.", Toast.LENGTH_SHORT).show();
+                    String errorMsg = "Ошибка соединения. Попробуйте позже.";
+                    if (error.networkResponse != null) {
+                        try {
+                            String responseBody = new String(error.networkResponse.data, "UTF-8");
+                            JSONObject errorJson = new JSONObject(responseBody);
+                            if (errorJson.has("message")) {
+                                errorMsg = errorJson.getString("message");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    Toast.makeText(OrderChDelActivity.this, errorMsg, Toast.LENGTH_LONG).show();
                 }
         ) {
             @Override
@@ -306,5 +334,4 @@ public class OrderChDelActivity extends AppCompatActivity {
 
         queue.add(request);
     }
-
 }
