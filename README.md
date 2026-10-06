@@ -46,11 +46,11 @@
 
 | Главная | Заказы | Редактирование заказ |
 | :---: | :---: | :---: |
-| <img src="screenshots/Главная.png" width="200"> | <img src="screenshots/Заказы.png" width="200"> | <img src="screenshots/Редактирование заказов" width="200"> |
+| <img src="screenshots/Главная.png" width="200"> | <img src="screenshots/Заказы.png" width="200"> | <img src="screenshots/ЗаказыРедактирование.png" width="200"> |
 | **Финанс** | **Отчеты** | **Редактирование отчетов** |
-| <img src="screenshots/Финансы.png" width="200"> | <img src="screenshots/Отчеты.png" width="200"> | <img src="screenshots/Редактирование отчетов.png" width="200"> |
-| **Материалы** | **Редактирование материалов** | |
-| <img src="screenshots/Материалы.png" width="200"> | <img src="screenshots/Редактирование материалов.png" width="200"> | |
+| <img src="screenshots/Финансы.png" width="200"> | <img src="screenshots/Отчеты.png" width="200"> | <img src="screenshots/ОтчетыРедактирование.png" width="200"> |
+| **Материалы** | **Редактирование материалов** | **Товары** |
+| <img src="screenshots/Материалы.png" width="200"> | <img src="screenshots/МатериалыРедактирование.png" width="200"> |  <img src="screenshots/Товары.png" width="200"> |
 
 </details>
 
@@ -71,7 +71,6 @@
 
 - 📱 **Google Play:** [ссылка на приложение](https://play.google.com/store/apps/details?id=ваш.package)
 - 📂 **GitHub (backend Laravel):** [korolewsanya/kovka-laravel](https://github.com/korolewsanya/kovka-laravel)
-- 📂 **GitHub (backend PHP):** [korolewsanya/kovka-php](https://github.com/korolewsanya/kovka-php)
 - 🌐 **Сайт проекта:** [ваш-домен.ru](https://ваш-домен.ru)
 
 ---
