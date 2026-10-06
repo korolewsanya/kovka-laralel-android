@@ -44,13 +44,13 @@
 <summary>👉 Нажмите, чтобы развернуть скриншоты приложения</summary>
 <br>
 
-| Главная | Заказы | Изделия |
+| Главная | Заказы | Редактирование заказ |
 | :---: | :---: | :---: |
-| <img src="screenshots/Главная.png" width="200"> | <img src="screenshots/Заказы.png" width="200"> | <img src="screenshots/Изделия.png" width="200"> |
-| **Редактирование заказа** | **Отчеты** | **Рабочий процесс** |
-| <img src="screenshots/ЗаказыРедактирование.png" width="200"> | <img src="screenshots/Отчеты.png" width="200"> | <img src="screenshots/Рабочий процесс.png" width="200"> |
-| **Сотрудники** | **Финансы** | |
-| <img src="screenshots/Сотрудники.png" width="200"> | <img src="screenshots/Финансы.png" width="200"> | |
+| <img src="screenshots/Главная.png" width="200"> | <img src="screenshots/Заказы.png" width="200"> | <img src="screenshots/Редактирование заказов" width="200"> |
+| **Финанс** | **Отчеты** | **Редактирование отчетов** |
+| <img src="screenshots/Финансы.png" width="200"> | <img src="screenshots/Отчеты.png" width="200"> | <img src="screenshots/Редактирование отчетов.png" width="200"> |
+| **Материалы** | **Редактирование материалов** | |
+| <img src="screenshots/Материалы.png" width="200"> | <img src="screenshots/Редактирование материалов.png" width="200"> | |
 
 </details>
 
